@@ -1,11 +1,11 @@
 import express, { json } from 'express'
 import { randomUUID } from 'node:crypto'
-import { createRequire } from 'node:module'
+
 import cors from 'cors'
 import { validateMovie, validatePartialMovie } from './schemas/movies.js'
+import { readJSON } from './utils.js'
 
-const require = createRequire(import.meta.url)
-const movies = require('./movies.json')
+const movies = readJSON('./movies.json')
 
 const app = express()
 app.disable('x-powered-by')
